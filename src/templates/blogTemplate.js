@@ -25,23 +25,24 @@ export default function Template({
             dangerouslySetInnerHTML={{ __html: body.value }}
           />
         </article>
-
-        <div className="related">
-          <h2>Contenuti correlati</h2>
-          {relationships.field_related.map((node) => (
-            <div>
-              <h3>
-                <Link to={node.path.alias} className="post-link">
-                  {node.title}
-                </Link>
-              </h3>
-              <div
-                className="textSummary"
-                dangerouslySetInnerHTML={{ __html: node.body.summary }}
-              />
-            </div>
-          ))}
-        </div>
+        {relationships.field_related.length > 0 && (
+          <div className="related">
+            <h2>Contenuti correlati</h2>
+            {relationships.field_related.map((node) => (
+              <div>
+                <h3>
+                  <Link to={node.path.alias} className="post-link">
+                    {node.title}
+                  </Link>
+                </h3>
+                <div
+                  className="textSummary"
+                  dangerouslySetInnerHTML={{ __html: node.body.summary }}
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </Layout>
   );
