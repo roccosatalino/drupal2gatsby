@@ -1,9 +1,9 @@
 {
-  "title": "Delog",
-  "siteUrl": "https://delog-w3layouts.netlify.com/",
-  "description": "Delog, a GatsbyJS and Netlify CMS starter for Designers and Developers",
+  "title": "Drupal8 to Gatsby",
+  "siteUrl": "https://turismo.giottolabs.it",
+  "description": "POC Drupal8 to Gatsby Architecture",
   "home": {
-    "title": "Hi! I'm Delog",
-    "description": "I have been specifically designed to become a digital home for designers and developers, help them build amazing professional looking websites with ease. You don't have to worry about nitty gritty of web hosting services to run a blog and yet take full advantage of CMS to manage content :)"
+    "title": "Lorem ipsum dolor sit amet",
+    "description": "Aenean cursus dui porta dui porttitor, id vehicula enim pretium. Proin justo enim, molestie molestie mattis vel, condimentum sed magna. Pellentesque id condimentum orci. Nullam magna nisi, pretium et risus in, tristique dapibus nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In laoreet est at felis posuere, eleifend consectetur massa rutrum."
   }
 }

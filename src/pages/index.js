@@ -1,20 +1,21 @@
-import React from "react"
-import Helmet from 'react-helmet';
-import { graphql } from 'gatsby'
-import Layout from "../components/layout"
-import PostLink from "../components/post-link"
-import HeroHeader from "../components/heroHeader"
+import React from "react";
+import Helmet from "react-helmet";
+import { graphql } from "gatsby";
+import Layout from "../components/layout";
+import PostLink from "../components/post-link";
+import HeroHeader from "../components/heroHeader";
 
 const IndexPage = ({
   data: {
     site,
     allMarkdownRemark: { edges },
+    allNodePage: { nodes },
   },
 }) => {
-
-  const Posts = edges
-    .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-    .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+  const Posts = nodes
+    //.filter((edge) => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
+    //.map((edge) => <PostLink key={edge.node.id} post={edge.node} />);
+    .map((node) => <PostLink key={node.id} post={node} />);
 
   return (
     <Layout>
@@ -22,16 +23,14 @@ const IndexPage = ({
         <title>{site.siteMetadata.title}</title>
         <meta name="description" content={site.siteMetadata.description} />
       </Helmet>
-      <HeroHeader/>
+      <HeroHeader />
       <h2>Blog Posts &darr;</h2>
-      <div className="grids">
-        {Posts}
-      </div>
+      <div className="grids">{Posts}</div>
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
 export const pageQuery = graphql`
   query indexPageQuery {
     site {
@@ -54,5 +53,18 @@ export const pageQuery = graphql`
         }
       }
     }
+    allNodePage(sort: { fields: changed, order: DESC }) {
+      nodes {
+        title
+        id
+        body {
+          summary
+        }
+        path {
+          langcode
+          alias
+        }
+      }
+    }
   }
-`
+`;
