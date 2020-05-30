@@ -2,13 +2,14 @@ import React from "react";
 import Helmet from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
+import RelatedPages from "../components/RelatedPages";
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
   const { site, nodePage } = data; // data.markdownRemark holds your post data
   const { siteMetadata } = site;
-  const { title, body, relationships } = nodePage;
+  const { drupal_internal__nid, title, body, relationships } = nodePage;
   return (
     <Layout>
       <Helmet>
@@ -25,6 +26,9 @@ export default function Template({
             dangerouslySetInnerHTML={{ __html: body.value }}
           />
         </article>
+
+        <RelatedPages nid={drupal_internal__nid} />
+
         {relationships.field_related.length > 0 && (
           <div className="related">
             <h2>Contenuti correlati</h2>
@@ -56,6 +60,7 @@ export const pageQuery = graphql`
       }
     }
     nodePage(path: { alias: { eq: $slug } }) {
+      drupal_internal__nid
       title
       body {
         value
