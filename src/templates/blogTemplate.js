@@ -4,10 +4,8 @@ import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import RelatedPages from "../components/RelatedPages";
 
-export default function Template({
-  data, // this prop will be injected by the GraphQL query below.
-}) {
-  const { site, nodePage } = data; // data.markdownRemark holds your post data
+export default function Template({ data }) {
+  const { site, nodePage } = data;
   const { siteMetadata } = site;
   const { drupal_internal__nid, title, body, relationships } = nodePage;
   return (
