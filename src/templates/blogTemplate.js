@@ -1,13 +1,13 @@
 import React from "react";
 import Helmet from "react-helmet";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import RelatedPages from "../components/RelatedPages";
 
 export default function Template({ data }) {
   const { site, nodePage } = data;
   const { siteMetadata } = site;
-  const { drupal_internal__nid, title, body, relationships } = nodePage;
+  const { drupal_internal__nid, title, body } = nodePage;
   return (
     <Layout>
       <Helmet>
@@ -24,10 +24,8 @@ export default function Template({ data }) {
             dangerouslySetInnerHTML={{ __html: body.value }}
           />
         </article>
-
         <RelatedPages nid={drupal_internal__nid} />
-
-        {relationships.field_related.length > 0 && (
+        {/* {relationships.field_related.length > 0 && (
           <div className="related">
             <h2>Contenuti correlati</h2>
             {relationships.field_related.map((node) => (
@@ -44,7 +42,7 @@ export default function Template({ data }) {
               </div>
             ))}
           </div>
-        )}
+        )} */}
       </div>
     </Layout>
   );
