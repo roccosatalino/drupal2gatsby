@@ -33,7 +33,7 @@ export default function Template({
           <div className="related">
             <h2>Contenuti correlati</h2>
             {relationships.field_related.map((node) => (
-              <div>
+              <div key={node.id}>
                 <h3>
                   <Link to={node.path.alias} className="post-link">
                     {node.title}
@@ -67,6 +67,7 @@ export const pageQuery = graphql`
       }
       relationships {
         field_related {
+          id
           body {
             summary
           }

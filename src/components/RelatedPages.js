@@ -1,18 +1,18 @@
 import React from "react";
 
 class RelatedPages extends React.Component {
-  /*constructor(props) {
+  constructor(props) {
     super(props);
 
     this.state = {
       data: null,
     };
-  }*/
+  }
 
   componentDidMount() {
     fetch(
       "https://turismo.giottolabs.com/json/related/" + this.props.nid
-    ).then((response) => console.log(response));
+    ).then((response) => console.log(response.json));
   }
 
   render() {
