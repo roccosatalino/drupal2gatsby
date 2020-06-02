@@ -4,10 +4,6 @@ import { Link } from "gatsby";
 class RelatedPages extends React.Component {
   constructor(props) {
     super(props);
-
-    {
-      /* TODO aggiungere gestione errori */
-    }
     this.state = {
       isLoading: false,
       pages: [],
@@ -28,9 +24,6 @@ class RelatedPages extends React.Component {
   }
 
   render() {
-    {
-      /* TODO aggiungere gestione errori */
-    }
     const { pages, isLoading } = this.state;
 
     if (isLoading) {
