@@ -61,18 +61,6 @@ export const pageQuery = graphql`
       body {
         value
       }
-      relationships {
-        field_related {
-          id
-          body {
-            summary
-          }
-          title
-          path {
-            alias
-          }
-        }
-      }
     }
   }
 `;
