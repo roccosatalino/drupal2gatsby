@@ -34,23 +34,27 @@ class RelatedPages extends React.Component {
       );
     }
 
-    return (
-      <div className="related">
-        {pages.length > 0 && <h2>Contenuti correlati</h2>}
+    if (pages.length > 0) {
+      return (
+        <div className="related">
+          <h2>Contenuti correlati</h2>
 
-        {pages.map((page) => (
-          <div key={page.nid}>
-            <h3>
-              <Link to={page.path}>{page.title}</Link>
-            </h3>
-            <div
-              className="textSummary"
-              dangerouslySetInnerHTML={{ __html: page.body }}
-            />
-          </div>
-        ))}
-      </div>
-    );
+          {pages.map((page) => (
+            <div key={page.nid}>
+              <h3>
+                <Link to={page.path}>{page.title}</Link>
+              </h3>
+              <div
+                className="textSummary"
+                dangerouslySetInnerHTML={{ __html: page.body }}
+              />
+            </div>
+          ))}
+        </div>
+      );
+    } else {
+      return null;
+    }
   }
 }
 
