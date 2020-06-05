@@ -36,7 +36,8 @@ class RelatedPages extends React.Component {
 
     return (
       <div className="related">
-        <h2>Contenuti correlati</h2>
+        {pages.length > 0 && <h2>Contenuti correlati</h2>}
+
         {pages.map((page) => (
           <div key={page.nid}>
             <h3>
