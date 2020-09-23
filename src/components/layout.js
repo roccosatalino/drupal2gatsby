@@ -25,7 +25,7 @@ export default ({ children }) => {
       </header>
       {children}
       <footer className="site-footer">
-        <p>&copy; {new Date().getFullYear()} Drupal8 to Gastby NEW!</p>
+        <p>&copy; {new Date().getFullYear()} Drupal8 to Gastby NEW1!</p>
       </footer>
     </div>
   );
